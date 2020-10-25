@@ -1,0 +1,24 @@
+{
+  "name": "vanilla-nodejs-restpi",
+  "version": "1.0.0",
+  "description": "vanilla nodejs rest api",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev:server": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/igorujevic/REST-API---vanilla-nodejs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/igorujevic/REST-API---vanilla-nodejs/issues"
+  },
+  "homepage": "https://github.com/igorujevic/REST-API---vanilla-nodejs#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
