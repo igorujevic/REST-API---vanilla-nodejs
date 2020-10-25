@@ -4,8 +4,8 @@
   "description": "vanilla nodejs rest api",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev:server": "nodemon server.js"
+    "start": "node server/index.js",
+    "dev:server": "nodemon server/index.js"
   },
   "repository": {
     "type": "git",

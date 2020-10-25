@@ -21,7 +21,7 @@ npm run dev:server
 - json-server (database) - PORT 5000 is just for example, default (json-server --watch data/db.json) is 3000
 
 ```
-json-server --watch data/db.json --port 5000
+json-server --watch server/data/db.json --port 5000
 ```
 
 Run in production
