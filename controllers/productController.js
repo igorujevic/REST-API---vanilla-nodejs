@@ -43,8 +43,79 @@ async function createProduct(req, res) {
   }
 }
 
+// @desc Update Product
+// @route PUT api/products/:id
+async function updateWholeProduct(req, res, id) {
+  try {
+    const product = await Product.findProductsById(id);
+    if (!product) {
+      res.writeHeader(404, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ message: 'Product Not Found.' }));
+    } else {
+      const body = await getPostData(req);
+      const { name, description, price } = JSON.parse(body);
+      const productData = {
+        name: name || product.name,
+        description: description || product.description,
+        price: price || product.price,
+      };
+      await Product.updateWhole(id, JSON.parse(body));
+      res.writeHeader(200, { 'Content-Type': 'application/json' });
+      return res.end(
+        JSON.stringify({ message: `Updated product with id: ${id}.` })
+      );
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// @desc Partial Update Product
+// @route PATCH api/products/:id
+async function updatePartialProduct(req, res, id) {
+  try {
+    const product = await Product.findProductsById(id);
+    if (!product) {
+      res.writeHeader(404, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ message: 'Product Not Found.' }));
+    } else {
+      const body = await getPostData(req);
+      await Product.updatePartial(id, JSON.parse(body));
+      res.writeHeader(200, { 'Content-Type': 'application/json' });
+      return res.end(
+        JSON.stringify({ message: `Updated product with id: ${id}.` })
+      );
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// @desc Delete Product
+// @route DELETE api/products/:id
+async function deleteProduct(req, res, id) {
+  try {
+    const product = await Product.findProductsById(id);
+    if (!product) {
+      res.writeHeader(404, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ message: 'Product Not Found.' }));
+    } else {
+      await Product.remove(id);
+      res.writeHeader(200, { 'Content-Type': 'application/json' });
+      return res.end(
+        JSON.stringify({ message: `Removed product with id: ${id}.` })
+      );
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 module.exports = {
   getProducts,
   getProduct,
   createProduct,
+  updateWholeProduct,
+  updatePartialProduct,
+  deleteProduct,
 };

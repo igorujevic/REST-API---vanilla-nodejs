@@ -29,8 +29,52 @@ function create(product) {
   });
 }
 
+function updateWhole(id, productData) {
+  console.log(productData);
+  const url = `http://localhost:${PORT}/products/${id}`;
+  return new Promise((resolve, _) => {
+    fetch(url, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(productData),
+    });
+
+    resolve(productData);
+  });
+}
+
+function updatePartial(id, productData) {
+  console.log(productData);
+  const url = `http://localhost:${PORT}/products/${id}`;
+  return new Promise((resolve, _) => {
+    fetch(url, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(productData),
+    });
+
+    resolve(productData);
+  });
+}
+
+function remove(id, productData) {
+  const url = `http://localhost:${PORT}/products/${id}`;
+  return new Promise((resolve, _) => {
+    fetch(url, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(productData),
+    });
+
+    resolve();
+  });
+}
+
 module.exports = {
   findAllProducts,
   findProductsById,
   create,
+  updateWhole,
+  updatePartial,
+  remove,
 };
