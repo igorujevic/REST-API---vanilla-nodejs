@@ -1,9 +1,12 @@
 // js for index.html
 const container = document.querySelector('.products');
+const searchForm = document.querySelector('.search-form');
 
-const renderProducts = async () => {
-  const uri = 'http://localhost:5000/products';
-
+const renderProducts = async (search) => {
+  let uri = 'http://localhost:5000/products';
+  if (search) {
+    uri += `?&q=${search}`;
+  }
   const res = await fetch(uri);
   const products = await res.json();
 
@@ -21,5 +24,11 @@ const renderProducts = async () => {
 
   container.innerHTML = template;
 };
+
+// search
+searchForm.addEventListener('keyup', async (e) => {
+  e.preventDefault();
+  renderProducts(searchForm.search.value.trim());
+});
 
 window.addEventListener('DOMContentLoaded', () => renderProducts());
