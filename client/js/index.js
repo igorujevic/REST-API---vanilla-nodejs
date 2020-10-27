@@ -11,9 +11,9 @@ const renderProducts = async () => {
   products.forEach((product) => {
     template += `
       <div class="product">
-        <h4>${product.name} $</h4>
-        <p>${product.description} $</p>
-        <p><small>${product.price} $</small></p>
+        <h4 class="product-name">${product.name} $</h4>
+        <p class="product-description">${product.description} $</p>
+        <p class="product-price">${product.price} $</p>
         <a href="/client/details.html?id=${product.id}">Read more</a>
       </div>
     `;
