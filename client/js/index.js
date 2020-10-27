@@ -14,7 +14,7 @@ const renderProducts = async () => {
         <h4>${product.name} $</h4>
         <p>${product.description} $</p>
         <p><small>${product.price} $</small></p>
-        <a href="/details.html?id=${product.id}">Read more</a>
+        <a href="/client/details.html?id=${product.id}">Read more</a>
       </div>
     `;
   });
