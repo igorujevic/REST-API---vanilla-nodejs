@@ -2,6 +2,8 @@
 
 This repository is based on [bradtraversy/vanilla-node-rest-api](https://github.com/bradtraversy/vanilla-node-rest-api) with small changes that I made.
 
+Client side only works with json-server, not /server, because DB is still not implemented.
+
 ## Usage
 
 Install dependencies after cloning repository
