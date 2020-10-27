@@ -1,7 +1,7 @@
 // js for details.html
 const id = new URLSearchParams(window.location.search).get('id');
 const container = document.querySelector('.details');
-const deleteBtn = document.querySelector('.delete');
+const deleteBtn = document.querySelector('.btn-delete');
 
 const renderDetails = async () => {
   const res = await fetch(`http://localhost:5000/products/${id}`);

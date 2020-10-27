@@ -10,11 +10,11 @@ const renderProducts = async () => {
   let template = '';
   products.forEach((product) => {
     template += `
-      <div class="product">
-        <h4 class="product-name">${product.name} $</h4>
-        <p class="product-description">${product.description} $</p>
-        <p class="product-price">${product.price} $</p>
-        <a href="/client/details.html?id=${product.id}">Read more</a>
+      <div class="product" onclick="location.href='/client/details.html?id=${product.id}';">
+        <h4 class="row product-name">${product.name}</h4>
+        <p class="row product-description">${product.description}</p>
+        <p class="row product-price">${product.price} $</p>
+        <a class= "row" href="/client/details.html?id=${product.id}">Read more</a>
       </div>
     `;
   });

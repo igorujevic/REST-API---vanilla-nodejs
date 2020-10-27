@@ -6,15 +6,183 @@
 }
 
 body {
-  background: #eee;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: $background-color;
+  color: $text-color;
   font-family: 'Roboto';
-  color: $background;
-  max-width: 960px;
-  margin: 100px auto;
-  padding: 10px;
 }
 
 nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 3rem;
+  margin-bottom: 3rem;
+  background: $nav-background-color;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.5rem;
+    height: 100%;
+    text-decoration: none;
+    color: $text-color;
+
+    &:hover {
+      background: darken($color: $nav-background-color, $amount: 5%);
+    }
+  }
 }
+
+.products {
+  margin: 0 10rem;
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+  gap: 1rem;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: $product-card-color;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+
+  .row {
+    padding: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .product-description {
+    margin: 1rem 0;
+  }
+
+  .product-price{
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  a {
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+    color: $link-color;
+    transition: 0.1s;
+    border-radius: 5px;
+
+    &:hover {
+      color: $nav-background-color;
+      background: $link-color;
+    }
+  }
+
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: $product-card-color;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+  h1 {
+    margin-bottom: 2rem;
+  }
+
+  p {
+    margin: 1rem 0;
+  }
+}
+
+.btn-delete{
+    display: inline-block;
+    padding: 1em 2em;
+    text-align: center;
+    color: $danger;
+    border: 1px solid $danger;
+    border-radius: 5px;
+    background: $product-card-color;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+    /* "to left" / "to right" - affects initial color */
+    background: linear-gradient(to left, $nav-background-color 50%, $danger 50%) right;
+    background-size: 200%;
+    transition: .2s ease-out;
+
+  &:hover {
+    border: 1px solid $product-card-color;
+    background-position: left;
+    color: $product-card-color;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+form {
+  max-width: 600px;
+
+  input[type=text] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  button {
+    display: inline-block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    color: $success;
+    border: 1px solid $success;
+    border-radius: 5px;
+    background: $product-card-color;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+
+    /* "to left" / "to right" - affects initial color */
+    background: linear-gradient(to left, $nav-background-color 50%, $success 50%) right;
+    background-size: 200%;
+    transition: .2s ease-out;
+
+    &:hover {
+      color: $product-card-color;
+      border: 1px solid $product-card-color;
+      background-position: left;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+
+
